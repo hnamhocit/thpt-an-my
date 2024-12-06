@@ -1,6 +1,8 @@
 import EventSection from "@/components/EventSection";
 import Header from "@/components/Header";
 import HistorySection from "@/components/HistorySection";
+import { lobster } from "@/fonts";
+import clsx from "clsx";
 
 export default function Home() {
 	return (
@@ -14,10 +16,20 @@ export default function Home() {
 				}}
 			>
 				<div className="absolute space-y-5 text-center -translate-x-1/2 -translate-y-1/2 lobster-regular top-1/2 left-1/2">
-					<div className="text-5xl font-black tracking-wide animate__animated animate__bounceInDown">
+					<div
+						className={clsx(
+							"text-8xl font-black tracking-wide animate__animated animate__bounceInDown",
+							lobster.className
+						)}
+					>
 						Trường THPT An Mỹ
 					</div>
-					<div className="text-3xl font-bold tracking-wide animate__animated animate__bounceInDown">
+					<div
+						className={clsx(
+							"text-3xl font-bold tracking-wide animate__animated animate__bounceInDown",
+							lobster.className
+						)}
+					>
 						Thi đua dạy tốt học tốt
 					</div>
 				</div>
