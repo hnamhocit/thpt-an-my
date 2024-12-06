@@ -1,21 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+	font-family: "Montserrat", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+	background-color: #1f1b24;
+	color: #ffffff;
+	scroll-behavior: smooth;
+}
+
+.lobster-regular {
+	font-family: "Lobster", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+@media (min-width: 1024px) {
+	.container {
+		max-width: 1024px;
+		margin: 0 auto;
+	}
 }
