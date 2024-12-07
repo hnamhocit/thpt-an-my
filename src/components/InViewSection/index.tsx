@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import { FC, memo, ReactNode, useContext, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 
@@ -11,20 +10,21 @@ interface InViewSectionProps {
 
 const InViewSection: FC<InViewSectionProps> = ({ sectionName, children }) => {
 	const { setSectionName } = useContext(InViewContext);
-	const { ref, inView } = useInView({ triggerOnce: true });
+	const { ref, inView } = useInView({
+		threshold: 0.3,
+	});
 
 	useEffect(() => {
-		if (inView) setSectionName(sectionName);
+		if (inView) {
+			setSectionName(sectionName);
+			document
+				.querySelector(`#${sectionName}`)
+				?.classList.add("animate__animated", "animate__backInUp");
+		}
 	}, [inView, setSectionName, sectionName]);
 
 	return (
-		<div
-			ref={ref}
-			id={sectionName}
-			className={clsx("space-y-10", {
-				"animate__animated animate__backInUp": inView,
-			})}
-		>
+		<div ref={ref} id={sectionName} className="space-y-10">
 			{children}
 		</div>
 	);

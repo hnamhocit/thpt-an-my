@@ -18,8 +18,14 @@ const ActiveLink: FC<ActiveLinkProps> = ({
 }) => {
 	const isActive = href.replace("#", "") === sectionName;
 
+	function handleClick() {
+		document.querySelector(href)?.scrollIntoView();
+		setSectionName(href.replace("#", ""));
+	}
+
 	return (
 		<a
+			onClick={handleClick}
 			href={href}
 			className={clsx(
 				"flex hover:border-pink-500 px-2 h-full hover:text-primary items-center gap-2 transition-all animate__animated animate__bounceIn",
@@ -28,7 +34,6 @@ const ActiveLink: FC<ActiveLinkProps> = ({
 						isActive,
 				}
 			)}
-			onClick={() => setSectionName(href.replace("#", ""))}
 		>
 			<span className={clsx("md:hidden", isActive && "text-pink-500")}>
 				{icon}
