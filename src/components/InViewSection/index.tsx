@@ -10,21 +10,19 @@ interface InViewSectionProps {
 }
 
 const InViewSection: FC<InViewSectionProps> = ({ sectionName, children }) => {
-	const { ref, inView } = useInView({ threshold: 0.5 });
 	const { setSectionName } = useContext(InViewContext);
+	const { ref, inView } = useInView({ triggerOnce: true });
 
 	useEffect(() => {
-		if (inView) {
-			setSectionName(sectionName);
-		}
-	}, [inView, sectionName, setSectionName]);
+		if (inView) setSectionName(sectionName);
+	}, [inView, setSectionName, sectionName]);
 
 	return (
 		<div
-			id={sectionName}
 			ref={ref}
-			className={clsx("space-y-5", {
-				"animate__animated animate__bounceIn": inView,
+			id={sectionName}
+			className={clsx("space-y-10", {
+				"animate__animated animate__backInUp": inView,
 			})}
 		>
 			{children}

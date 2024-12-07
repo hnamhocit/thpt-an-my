@@ -68,7 +68,7 @@ export default function Home() {
 					backgroundImage: "url(/assets/images/hero.jpg)",
 				}}
 			>
-				<div className="absolute space-y-5 text-center -translate-x-1/2 -translate-y-1/2 lobster-regular top-1/2 left-1/2 text-white">
+				<div className="absolute space-y-5 text-center -translate-x-1/2 -translate-y-1/2 lobster-regular top-1/2 left-1/2 text-white 20-10">
 					<div
 						className={clsx(
 							"text-8xl font-black tracking-wide animate__animated animate__bounceInDown",
@@ -88,7 +88,7 @@ export default function Home() {
 				</div>
 			</div>
 
-			<div className="container p-4 space-y-10">
+			<div className="container p-4 flex flex-col gap-10">
 				{pages.map((page) => (
 					<InViewSection
 						key={page.href}

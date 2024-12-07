@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 const timelines = [
 	{
 		timestamp: "thập niên 30",
@@ -100,4 +102,4 @@ const HistorySection = () => {
 	);
 };
 
-export default HistorySection;
+export default memo(HistorySection);
