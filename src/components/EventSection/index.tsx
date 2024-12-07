@@ -1,6 +1,4 @@
-import clsx from "clsx";
-import { useInView } from "react-intersection-observer";
-import EventCard from "../EventCard";
+import EventCard from "./EventCard";
 
 const events = [
 	{
@@ -30,28 +28,11 @@ const events = [
 ];
 
 const EventSection = () => {
-	const { ref, inView } = useInView();
-
 	return (
-		<div ref={ref} className="space-y-5 overflow-hidden">
-			<div
-				className={clsx("text-3xl font-bold text-center", {
-					"animate__animated animate__bounceInRight": inView,
-				})}
-				id="events"
-			>
-				Hoạt động & Lễ hội
-			</div>
-
-			<div
-				className={clsx("container grid gap-5 md:grid-cols-2", {
-					"animate__animated animate__bounceInRight": inView,
-				})}
-			>
-				{events.map((event) => (
-					<EventCard {...event} key={event.url} />
-				))}
-			</div>
+		<div className="container grid gap-5 md:grid-cols-2">
+			{events.map((event) => (
+				<EventCard {...event} key={event.url} />
+			))}
 		</div>
 	);
 };

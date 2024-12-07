@@ -1,34 +1,20 @@
 import clsx from "clsx";
 import Image from "next/image";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 
-const pages = [
-	{
-		href: "#history",
-		name: "Quá trình thành lập",
-	},
-	{
-		href: "#events",
-		name: "Hoạt động",
-	},
-	{
-		href: "#teachers",
-		name: "Giáo viên bộ môn",
-	},
-	{
-		href: "#classes-rooms",
-		name: "Sơ đồ lớp - Phòng học",
-	},
-];
+import { InViewContext } from "@/contexts/InView";
+import type { Pages } from "@/pages";
+import ActiveLink from "./ActiveLink";
 
-const Header = () => {
+const Header = ({ pages }: { pages: Pages }) => {
 	const [isOpen, setIsOpen] = useState(false);
+	const { sectionName, setSectionName } = useContext(InViewContext);
 
 	const toggleIsOpen = () => setIsOpen((prev) => !prev);
 
 	return (
-		<header className="sticky top-0 left-0 z-20 flex items-center justify-between w-full h-16 px-4 bg-black shadow-md">
+		<header className="sticky top-0 left-0 z-20 flex items-center justify-between w-full h-16 bg-white px-4 shadow-md">
 			<div className="flex items-center gap-3 animate__animated animate__bounceIn">
 				<Image
 					src="/assets/images/logo.jpg"
@@ -45,13 +31,12 @@ const Header = () => {
 
 			<div className="items-center hidden h-full gap-5 md:flex">
 				{pages.map((page) => (
-					<a
+					<ActiveLink
 						key={page.href}
-						href={page.href}
-						className="animate__animated animate__bounceIn"
-					>
-						{page.name}
-					</a>
+						{...page}
+						sectionName={sectionName}
+						setSectionName={setSectionName}
+					/>
 				))}
 			</div>
 
@@ -65,7 +50,7 @@ const Header = () => {
 
 				<div
 					className={clsx(
-						"absolute right-0 flex flex-col gap-5 p-4 bg-[rgba(0,0,0,.9)] shadow-xl top-full min-w-60 rounded-2xl transition-all",
+						"absolute right-0 flex flex-col gap-5 p-4 bg-white border shadow-xl top-full min-w-60 rounded-2xl transition-all",
 						{
 							"visible opacity-100 translate-y-2": isOpen,
 							"invisible opacity-0 -translate-y-2": !isOpen,
@@ -73,9 +58,12 @@ const Header = () => {
 					)}
 				>
 					{pages.map((page) => (
-						<a key={page.href} href={page.href}>
-							{page.name}
-						</a>
+						<ActiveLink
+							key={page.href}
+							{...page}
+							sectionName={sectionName}
+							setSectionName={setSectionName}
+						/>
 					))}
 				</div>
 			</div>

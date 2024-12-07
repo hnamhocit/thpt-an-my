@@ -14,7 +14,7 @@ const EventCard: FC<Event> = ({ url, title, content }) => {
 	return (
 		<div className="space-y-5 text-center">
 			<div
-				className="mx-auto bg-center bg-no-repeat bg-cover shadow-md w-80 h-60 rounded-2xl"
+				className="mx-auto bg-center bg-no-repeat bg-cover shadow-md min-h-60 rounded-2xl"
 				style={{
 					backgroundImage: `url(${url})`,
 				}}
@@ -24,11 +24,10 @@ const EventCard: FC<Event> = ({ url, title, content }) => {
 				{title}
 			</div>
 
-			<div className="text-sm text-left text-gray-300">
-				{isExpanded ? content : `${content.substring(0, 200)}...`}
-
+			<div className="text-sm text-left text-gray-700">
+				{isExpanded ? content : `${content.substring(0, 200)}...`}{" "}
 				<button
-					className="font-semibold text-white underline"
+					className="font-semibold underline"
 					onClick={toggleIsExpanded}
 				>
 					{isExpanded ? "Thu gọn" : "Xem thêm"}

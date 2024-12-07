@@ -6,10 +6,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+	.text-primary {
+		@apply text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500;
+	}
+
+	.heading {
+		@apply text-3xl font-bold text-primary;
+	}
+}
+
 body {
-	background-color: #1f1b24;
-	color: #ffffff;
 	scroll-behavior: smooth;
+	background-color: #fdf7f4;
 }
 
 @media (min-width: 1024px) {

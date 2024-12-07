@@ -1,6 +1,3 @@
-import clsx from "clsx";
-import { useInView } from "react-intersection-observer";
-
 const timelines = [
 	{
 		timestamp: "thập niên 30",
@@ -45,79 +42,61 @@ const timelines = [
 ];
 
 const HistorySection = () => {
-	const { ref, inView } = useInView();
-
 	return (
-		<div ref={ref} className="space-y-5 overflow-hidden">
+		<>
 			<div
-				className={clsx("text-3xl font-bold text-center", {
-					"animate__animated animate__bounceInLeft": inView,
-				})}
-				id="history"
-			>
-				Quá trình thành lập
-			</div>
-
-			<div
-				className={clsx(
-					"grid grid-cols-2 gap-5 md:grid-cols-4 lg:grid-cols-5",
-					{
-						"animate__animated animate__bounceInLeft": inView,
-					}
-				)}
+				className={
+					"grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-5"
+				}
 			>
 				<div
-					className="bg-center bg-no-repeat bg-cover rounded-2xl min-h-40"
+					className="bg-center bg-no-repeat border bg-cover rounded-2xl min-h-40"
 					style={{
 						backgroundImage: "url(/assets/images/history/1.jpg)",
 					}}
 				></div>
 				<div
-					className="bg-center bg-no-repeat bg-cover rounded-2xl min-h-40"
+					className="bg-center border bg-no-repeat bg-cover rounded-2xl min-h-40"
 					style={{
 						backgroundImage: "url(/assets/images/history/2.jpg)",
 					}}
 				></div>
 				<div
-					className="bg-center bg-no-repeat bg-cover rounded-2xl min-h-40"
+					className="bg-center border bg-no-repeat bg-cover rounded-2xl min-h-40"
 					style={{
 						backgroundImage: "url(/assets/images/history/3.jpg)",
 					}}
 				></div>
 				<div
-					className="bg-center bg-no-repeat bg-cover rounded-2xl min-h-40"
+					className="bg-center border bg-no-repeat bg-cover rounded-2xl min-h-40"
 					style={{
 						backgroundImage: "url(/assets/images/history/4.jpg)",
 					}}
 				></div>
 				<div
-					className="bg-center bg-no-repeat bg-cover rounded-2xl min-h-40"
+					className="bg-center border bg-no-repeat bg-cover rounded-2xl min-h-40"
 					style={{
 						backgroundImage: "url(/assets/images/history/5.png)",
 					}}
 				></div>
 			</div>
 
-			<ol
-				className={clsx("relative border-l border-blue-200", {
-					"animate__animated animate__bounceInLeft": inView,
-				})}
-			>
+			<ol className="relative border-l border-pink-200">
 				{timelines.map((timeline) => (
 					<li key={timeline.timestamp} className="mb-10 ml-4">
-						<div className="absolute w-3 h-3 bg-blue-200 rounded-full mt-1.5 -start-1.5 border border-blue-200"></div>
+						<div className="absolute w-3 h-3 bg-pink-200 rounded-full mt-1.5 -start-1.5 border border-pink-200"></div>
 
-						<time className="font-medium text-white uppercase">
+						<time className="font-medium uppercase">
 							{timeline.timestamp}
 						</time>
 
-						<p className="mt-2 text-sm text-gray-300">
+						<p className="mt-2 text-sm text-gray-700">
 							{timeline.content}
 						</p>
 					</li>
 				))}
 			</ol>
-		</div>
+		</>
 	);
 };
 
