@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { motion } from "motion/react";
 import { JSX, ReactElement } from "react";
 import { FaFacebook, FaGithub, FaMapMarkedAlt } from "react-icons/fa";
 import { FaBell, FaClockRotateLeft } from "react-icons/fa6";
@@ -13,7 +14,7 @@ import InViewSection from "@/components/InViewSection";
 import TeachersSection from "@/components/TeachersSection";
 import Trophies from "@/components/TrophiesSection";
 import InViewProvider from "@/contexts/InView";
-import { lobster } from "@/fonts";
+import { lobsterTwo } from "@/fonts";
 
 export type Page = {
 	href: string;
@@ -45,7 +46,7 @@ const pages = [
 	},
 	{
 		href: "#classes-rooms",
-		name: "Sơ đồ lớp - Phòng học",
+		name: "Sơ đồ lớp, phòng",
 		icon: <FaMapMarkedAlt />,
 		content: <ClassesRoomsSection />,
 	},
@@ -62,29 +63,38 @@ export default function Home() {
 		<InViewProvider>
 			<Header pages={pages} />
 
-			<div
-				className="mb-5 relative h-[calc(100vh-64px)] bg-left bg-no-repeat bg-cover min-h-80"
-				style={{
-					backgroundImage: "url(/assets/images/hero.jpg)",
-				}}
-			>
-				<div className="absolute space-y-5 text-center -translate-x-1/2 -translate-y-1/2 lobster-regular top-1/2 left-1/2 text-white 20-10">
-					<div
+			<div className="mb-5 relative h-[calc(100vh-64px)] min-h-80">
+				<div
+					className="absolute inset-0 -z-20 bg-left bg-no-repeat bg-cover"
+					style={{
+						backgroundImage: "url(/assets/images/hero.jpg)",
+					}}
+				></div>
+
+				<div className="absolute inset-0 -z-10 bg-[rgba(0,0,0,.3)] backdrop-blur-sm"></div>
+
+				<div className="absolute space-y-5 text-center -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 text-white max-w-md">
+					<motion.div
+						initial={{ opacity: 0, scale: 0, translateY: "-100%" }}
+						animate={{ opacity: 1, scale: 1, translateY: 0 }}
 						className={clsx(
-							"text-8xl font-black tracking-wide animate__animated animate__bounceInDown",
-							lobster.className
+							"text-8xl text-primary",
+							lobsterTwo.className
 						)}
 					>
-						Trường THPT An Mỹ
-					</div>
-					<div
+						Trường Thpt An Mỹ
+					</motion.div>
+
+					<motion.div
+						initial={{ opacity: 0, scale: 0, translateY: "-100%" }}
+						animate={{ opacity: 1, scale: 1, translateY: 0 }}
 						className={clsx(
-							"text-3xl font-bold tracking-wide animate__animated animate__bounceInDown",
-							lobster.className
+							"text-3xl text-primary",
+							lobsterTwo.className
 						)}
 					>
-						Thi đua dạy tốt học tốt
-					</div>
+						Thi đua dạy tốt, học tốt
+					</motion.div>
 				</div>
 			</div>
 
