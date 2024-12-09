@@ -1,4 +1,5 @@
 import { montserrat } from "@/fonts";
+import { Analytics } from "@vercel/analytics/next";
 import { Head, Html, Main, NextScript } from "next/document";
 
 export default function Document() {
@@ -8,6 +9,7 @@ export default function Document() {
 			<body className={montserrat.className}>
 				<Main />
 				<NextScript />
+				<Analytics />
 			</body>
 		</Html>
 	);
