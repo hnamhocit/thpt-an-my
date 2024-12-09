@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import { FC, memo, useState } from "react";
 
 type Event = {
@@ -12,7 +13,11 @@ const EventCard: FC<Event> = ({ url, title, content }) => {
 	const toggleIsExpanded = () => setIsExpanded((prev) => !prev);
 
 	return (
-		<div className="space-y-5 text-center">
+		<motion.div
+			initial={{ opacity: 0, scale: 0 }}
+			whileInView={{ opacity: 1, scale: 1 }}
+			className="space-y-5 text-center"
+		>
 			<div
 				className="mx-auto bg-center bg-no-repeat bg-cover shadow-md min-h-60 rounded-2xl"
 				style={{
@@ -33,7 +38,7 @@ const EventCard: FC<Event> = ({ url, title, content }) => {
 					{isExpanded ? "Thu gọn" : "Xem thêm"}
 				</button>
 			</div>
-		</div>
+		</motion.div>
 	);
 };
 

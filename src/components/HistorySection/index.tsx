@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import { memo } from "react";
 
 const timelines = [
@@ -85,7 +86,12 @@ const HistorySection = () => {
 
 			<ol className="relative border-l border-pink-200">
 				{timelines.map((timeline) => (
-					<li key={timeline.timestamp} className="mb-10 ml-4">
+					<motion.li
+						initial={{ opacity: 0, scale: 0 }}
+						whileInView={{ opacity: 1, scale: 1 }}
+						key={timeline.timestamp}
+						className="mb-10 ml-4"
+					>
 						<div className="absolute w-3 h-3 bg-pink-200 rounded-full mt-1.5 -start-1.5 border border-pink-200"></div>
 
 						<time className="font-medium uppercase">
@@ -95,7 +101,7 @@ const HistorySection = () => {
 						<p className="mt-2 text-sm text-gray-700">
 							{timeline.content}
 						</p>
-					</li>
+					</motion.li>
 				))}
 			</ol>
 		</>
