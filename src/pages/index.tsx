@@ -78,7 +78,7 @@ export default function Home() {
 						initial={{ opacity: 0, scale: 0, translateY: "-100%" }}
 						animate={{ opacity: 1, scale: 1, translateY: 0 }}
 						className={clsx(
-							"text-8xl text-primary",
+							"text-8xl",
 							lobsterTwo.className
 						)}
 					>
@@ -89,7 +89,7 @@ export default function Home() {
 						initial={{ opacity: 0, scale: 0, translateY: "-100%" }}
 						animate={{ opacity: 1, scale: 1, translateY: 0 }}
 						className={clsx(
-							"text-3xl text-primary",
+							"text-3xl",
 							lobsterTwo.className
 						)}
 					>
