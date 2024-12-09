@@ -7,7 +7,7 @@ import MobileMenu from "./MobileMenu";
 
 const Header = ({ pages }: { pages: Pages }) => {
 	return (
-		<header className="sticky top-0 left-0 z-20 flex items-center justify-between w-full h-16 bg-white px-4 shadow-md">
+		<header className="fixed top-0 left-0 z-20 flex items-center justify-between w-full h-16 bg-white px-4 shadow-md">
 			<motion.div
 				initial={{ opacity: 0, scale: 0, translateY: "-100%" }}
 				animate={{ opacity: 1, scale: 1, translateY: 0 }}

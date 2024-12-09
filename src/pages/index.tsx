@@ -1,12 +1,11 @@
 import clsx from "clsx";
 import { motion } from "motion/react";
 import { JSX, ReactElement } from "react";
-import { FaFacebook, FaGithub, FaMapMarkedAlt } from "react-icons/fa";
+import { FaFacebook, FaGithub } from "react-icons/fa";
 import { FaBell, FaClockRotateLeft } from "react-icons/fa6";
 import { GiTeacher } from "react-icons/gi";
 import { MdEmojiEvents } from "react-icons/md";
 
-import ClassesRoomsSection from "@/components/ClassesRoomsSections";
 import EventSection from "@/components/EventSection";
 import Header from "@/components/Header";
 import HistorySection from "@/components/HistorySection";
@@ -45,12 +44,6 @@ const pages = [
 		content: <TeachersSection />,
 	},
 	{
-		href: "#classes-rooms",
-		name: "Sơ đồ lớp, phòng",
-		icon: <FaMapMarkedAlt />,
-		content: <ClassesRoomsSection />,
-	},
-	{
 		href: "#trophies",
 		name: "Thành tựu",
 		icon: <MdEmojiEvents />,
@@ -63,7 +56,7 @@ export default function Home() {
 		<InViewProvider>
 			<Header pages={pages} />
 
-			<div className="mb-5 relative h-[calc(100vh-64px)] min-h-80">
+			<div className="mb-5 relative h-screen min-h-80">
 				<div
 					className="absolute inset-0 -z-20 bg-left bg-no-repeat bg-cover"
 					style={{
@@ -77,10 +70,7 @@ export default function Home() {
 					<motion.div
 						initial={{ opacity: 0, scale: 0, translateY: "-100%" }}
 						animate={{ opacity: 1, scale: 1, translateY: 0 }}
-						className={clsx(
-							"text-8xl",
-							lobsterTwo.className
-						)}
+						className={clsx("text-8xl", lobsterTwo.className)}
 					>
 						Trường Thpt An Mỹ
 					</motion.div>
@@ -88,28 +78,29 @@ export default function Home() {
 					<motion.div
 						initial={{ opacity: 0, scale: 0, translateY: "-100%" }}
 						animate={{ opacity: 1, scale: 1, translateY: 0 }}
-						className={clsx(
-							"text-3xl",
-							lobsterTwo.className
-						)}
+						className={clsx("text-3xl", lobsterTwo.className)}
 					>
 						Thi đua dạy tốt, học tốt
 					</motion.div>
 				</div>
 			</div>
 
-			<div className="container p-4 flex flex-col gap-10">
+			<div className="container p-4 flex flex-col gap-20">
 				{pages.map((page) => (
 					<InViewSection
 						key={page.href}
 						sectionName={page.href.replace("#", "")}
+						name={page.name}
 					>
-						<div className="heading text-center">{page.name}</div>
 						{page.content}
 					</InViewSection>
 				))}
 
-				<div className="p-4 text-center italic font-semibold rounded-full bg-gradient-to-r from-purple-500 to-pink-500 shadow-md flex items-center justify-center gap-3 text-white">
+				<motion.div
+					initial={{ opacity: 0, scale: 0 }}
+					whileInView={{ opacity: 1, scale: 1 }}
+					className="p-4 text-center italic font-semibold rounded-full bg-gradient-to-r from-purple-500 to-pink-500 shadow-md flex items-center justify-center gap-3 text-white"
+				>
 					<div className="font-semibold">
 						Make By Nguyễn Hoàng Nam 2024
 					</div>
@@ -129,7 +120,7 @@ export default function Home() {
 					>
 						<FaFacebook size={24} />
 					</a>
-				</div>
+				</motion.div>
 			</div>
 		</InViewProvider>
 	);

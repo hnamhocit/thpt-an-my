@@ -1,23 +1,28 @@
-import { motion } from "motion/react";
-import { FC, memo, ReactNode, useContext, useEffect } from "react";
-import { useInView } from "react-intersection-observer";
+import { motion, useInView } from "motion/react";
+import { FC, memo, ReactNode, useContext, useEffect, useRef } from "react";
 
 import { InViewContext } from "@/contexts/InView";
 
 interface InViewSectionProps {
 	sectionName: string;
 	children: ReactNode;
+	name: string;
 }
 
-const InViewSection: FC<InViewSectionProps> = ({ sectionName, children }) => {
+const InViewSection: FC<InViewSectionProps> = ({
+	sectionName,
+	children,
+	name,
+}) => {
 	const { setSectionName } = useContext(InViewContext);
-	const { ref, inView } = useInView();
+	const ref = useRef(null);
+	const isInView = useInView(ref);
 
 	useEffect(() => {
-		if (inView) {
+		if (isInView) {
 			setSectionName(sectionName);
 		}
-	}, [setSectionName, sectionName, inView]);
+	}, [setSectionName, sectionName, isInView]);
 
 	return (
 		<motion.div
@@ -30,6 +35,7 @@ const InViewSection: FC<InViewSectionProps> = ({ sectionName, children }) => {
 			}}
 			className="space-y-10"
 		>
+			<div className="heading text-center">{name}</div>
 			{children}
 		</motion.div>
 	);
