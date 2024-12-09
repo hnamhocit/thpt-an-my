@@ -5,5 +5,6 @@ export const montserrat = Montserrat({
 	display: "swap",
 });
 export const lobsterTwo = Lobster_Two({
+	subsets: ["latin"],
 	weight: "700",
 });
