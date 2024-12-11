@@ -24,7 +24,7 @@ const TeachersSection = () => {
 				<div className="text-xl font-semibold">{section.name}</div>
 				{section.items.map(item => {
 					const [label, text] = item.split(':')
-					return <div><span className="font-medium">{label}</span> <span className="underline decoration-pink-500">{text}</span></div>
+					return <div key={item}><span className="font-medium">{label}</span> <span className="underline decoration-pink-500">{text}</span></div>
 				})}
 			</motion.div>)}
 		</div>
