@@ -1,7 +1,7 @@
 import {motion} from "motion/react"
 
 const sections = [
-	{ name: 'Lãnh đạo đơn vị', 
+	{ title: 'Lãnh đạo đơn vị', 
 	 items: ['Tổng số giáo viên, nhân viên đầu năm học 2021-2022 là 81 người. Trong đó:', 
 			 'Bộ phận hành chính, bảo vệ, phục vụ: 11 người (Đại học: 05).', 
 			 'Giáo viên trực tiếp tham gia dạy lớp: 64 người, trong đó 100% giáo viên đạt chuẩn, 17/64 giáo viên là Thạc sĩ.']},
@@ -20,11 +20,11 @@ const sections = [
 const TeachersSection = () => {
 	return (
 		<div className="grid grid-cols-3 gap-5">
-			{sections.map(section => <motion.div className="space-y-3 p-4 shadow-md border rounded-2xl" key={section.name} initial={{ opacity: 0, scale: 0 }} whileInView={{ opacity: 1, scale: 1 }}>
-				<div className="text-xl font-semibold">{section.name}</div>
+			{sections.map(section => <motion.div className="space-y-3 p-4 bg-white shadow-md border rounded-2xl" key={section.title} initial={{ opacity: 0, scale: 0 }} whileInView={{ opacity: 1, scale: 1 }}>
+				<div className="text-2xl font-semibold text-center">{section.title}</div>
 				{section.items.map(item => {
 					const [label, text] = item.split(':')
-					return <div key={item}><span className="font-medium">{label}</span> <span className="underline decoration-pink-500">{text}</span></div>
+					return <div key={item} className="text-sm"><span className="font-medium">{label}</span> <span className="underline decoration-pink-500">{text}</span></div>
 				})}
 			</motion.div>)}
 		</div>
