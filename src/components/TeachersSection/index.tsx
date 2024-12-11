@@ -4,7 +4,7 @@ const sections = [
 	{ name: 'Lãnh đạo đơn vị', 
 	 items: ['Tổng số giáo viên, nhân viên đầu năm học 2021-2022 là 81 người. Trong đó:', 
 			 'Bộ phận hành chính, bảo vệ, phục vụ: 11 người (Đại học: 05).', 
-			 'Giáo viên trực tiếp tham gia dạy lớp: 64 người, trong đó 100% giáo viên đạt chuẩn, 17/64 giáo viên là Thạc sĩ.']}
+			 'Giáo viên trực tiếp tham gia dạy lớp: 64 người, trong đó 100% giáo viên đạt chuẩn, 17/64 giáo viên là Thạc sĩ.']},
 	{title: 'Tổ Toán: 11 giáo viên', items: ['Tổ trưởng chuyên môn: Thầy Phạm Đỗ Hải.', 'Tổ phó chuyên môn: Cô Nguyễn Thị Phương Thảo.']},
 	{ title: 'Tổ Văn: 09 giáo viên', items: ['Tổ trưởng chuyên môn: Thầy Nông Ngọc Trọng.', 'Tổ phó chuyên môn: Cô Nguyễn Thanh Hiền.'] },
 	{ title: 'Tổ Ngoại ngữ: 08 giáo viên.', items: ['Tổ trưởng chuyên môn: Cô Võ Thị Phượng.', 'Tổ phó chuyên môn: Cô Trần Thị Tường Vi.'] },
