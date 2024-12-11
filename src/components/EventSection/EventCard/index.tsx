@@ -16,6 +16,7 @@ const EventCard: FC<Event> = ({ url, title, content }) => {
 		<motion.div
 			initial={{ opacity: 0, scale: 0 }}
 			whileInView={{ opacity: 1, scale: 1 }}
+			whileHover={{ scale: 1.05 }}
 			className="space-y-5 text-center"
 		>
 			<div
