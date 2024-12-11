@@ -43,12 +43,6 @@ const pages = [
 		icon: <GiTeacher />,
 		content: <TeachersSection />,
 	},
-	{
-		href: "#trophies",
-		name: "Thành tựu",
-		icon: <MdEmojiEvents />,
-		content: <Trophies />,
-	},
 ];
 
 export default function Home() {
