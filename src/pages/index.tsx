@@ -4,14 +4,12 @@ import { JSX, ReactElement } from "react";
 import { FaFacebook, FaGithub } from "react-icons/fa";
 import { FaBell, FaClockRotateLeft } from "react-icons/fa6";
 import { GiTeacher } from "react-icons/gi";
-import { MdEmojiEvents } from "react-icons/md";
 
 import EventSection from "@/components/EventSection";
 import Header from "@/components/Header";
 import HistorySection from "@/components/HistorySection";
 import InViewSection from "@/components/InViewSection";
 import TeachersSection from "@/components/TeachersSection";
-import Trophies from "@/components/TrophiesSection";
 import InViewProvider from "@/contexts/InView";
 import { lobsterTwo } from "@/fonts";
 
