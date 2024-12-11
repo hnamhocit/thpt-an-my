@@ -20,12 +20,12 @@ const sections = [
 const TeachersSection = () => {
 	return (
 		<div className="grid grid-cols-3 gap-5">
-			{sections.map(section => <motion.div className="space-y-7 min-h-60 p-4 bg-white shadow-md border rounded-2xl" key={section.title} initial={{ opacity: 0, scale: 0 }} whileInView={{ opacity: 1, scale: 1 }}>
-				<div className="text-xl font-medium text-center">{section.title}</div>
+			{sections.map(section => <motion.div className="space-y-7 min-h-60 p-4 hover:-translate-y-2 transition bg-white shadow-md border rounded-2xl" key={section.title} initial={{ opacity: 0, scale: 0 }} whileInView={{ opacity: 1, scale: 1 }}>
+				<div className="text-xl font-semibold text-center">{section.title}</div>
 				<div className="space-y-3">
 						{section.items.map(item => {
 							const [label, text] = item.split(':')
-							return <div key={item}><span className="font-medium">{label}</span>: <span className="underline decoration-pink-500">{text}</span></div>
+							return <div key={item}><span className="font-medium">{label}</span>: <span className="underline decoration-2 decoration-pink-500">{text}</span></div>
 						})}
 				</div>
 			</motion.div>)}
