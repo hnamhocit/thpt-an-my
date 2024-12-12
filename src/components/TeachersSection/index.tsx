@@ -106,19 +106,19 @@ const TeachersSection = () => {
 				return (
 					<motion.div
 						whileHover={{ scale: 1.05 }}
-						className="cursor-pointer bg-white shadow-md border rounded-2xl"
+						className="cursor-pointer"
 						key={section.title}
 						initial={{ opacity: 0, scale: 0 }}
 						whileInView={{ opacity: 1, scale: 1 }}
 					>
 						<div
-							className="bg-cover bg-center bg-no-repeat min-h-40 rounded-t-2xl"
+							className="bg-cover bg-center bg-no-repeat min-h-44 border shadow-lg rounded-2xl"
 							style={{
 								backgroundImage: `url(${section.thumbnailURL})`,
 							}}
 						></div>
 
-						<div className="p-4 pt-7 space-y-3">
+						<div className="p-4 mt-7 rounded-2xl space-y-3 min-h-80 shadow-inner bg-white">
 							<div className="text-xl text-primary font-bold text-center">
 								{subject} {amount && `(${amount.trim()})`}
 							</div>
